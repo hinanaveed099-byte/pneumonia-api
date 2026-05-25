@@ -12,7 +12,7 @@ app = Flask(__name__)
 # LOAD MODEL
 # =========================================
 model = tf.keras.models.load_model(
-    "best_pneumonia_model.keras"
+    "best_model.keras"
 )
 
 IMG_SIZE = 224
@@ -144,6 +144,14 @@ def predict():
         "suggestion": advice
 
     })
+
+# =========================================
+# HOME ROUTE
+# =========================================
+@app.route('/')
+def home():
+
+    return "Pneumonia API Running Successfully"
 
 # =========================================
 # RUN APP
